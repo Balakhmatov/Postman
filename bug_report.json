@@ -1,1 +1,15 @@
-
+{
+  "ID": 1,
+  "Title": "Product with B is place before product with A after sorting by A-Z",
+  "Modul": "Product sorting in catalog",
+  "Environment": "Production",
+  "STR": "1) Open www.site.com 2) Click Catalog 3) Click Sort by A-Z in the sorting menu"
+  "Expected result": "Products are sorting by A-Z"
+  "Actual result": "Product with B is place before product with A"
+  "Bug status": "New",
+  "Severiry": 2,
+  "Priority": 3,
+  "Author": "Ilya Balakhmatov",
+  "Appointed to fix": "Ivan Ivanov"
+}
+  
