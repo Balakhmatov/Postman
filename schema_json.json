@@ -1,0 +1,61 @@
+Response body:
+{
+    "age": "29",
+    "family": {
+        "children": [
+            [
+                "Alex",
+                24
+            ],
+            [
+                "Kate",
+                12
+            ]
+        ],
+        "u_salary_1_5_year": 600
+    },
+    "name": "Ilia",
+    "salary": 150
+}
+
+Проверка структуры json:
+const schema = {
+    "type":"object",
+    "required":[
+        "age",
+        "family",
+        "name",
+        "salary"
+    ],
+    "properties":{
+        "age":{
+        "type":"string",
+        },
+        "family":{
+            "type":"object",
+            "required":[
+        "children",
+        "u_salary_1_5_year"
+            ],
+            "properties":{
+                "children":{
+                    "type":"array",
+                    "minItems":2,
+                    },
+                "u_salary_1_5_year":{
+                    "type":"integer",
+                },
+                },
+                },
+                "name":{
+                    "type":"string",
+                },
+                "salary":{
+                    "type":"number",
+                },
+            },
+        }
+
+pm.test("Validating Schema", function () {
+    pm.response.to.have.jsonSchema(schema);
+});
