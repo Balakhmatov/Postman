@@ -1,0 +1,45 @@
+Request body:
+
+{
+  "age": 29,
+  "name": "Ilia",
+  "salary": 4000
+}
+
+Response body:
+
+{
+    "age": 29,
+    "name": "Ilia",
+    "salary": [
+        4000,
+        "8000",
+        "12000"
+    ]
+}
+
+В ответе указаны коэффициенты умножения salary, напишите тесты по проверке правильности результата перемножения на коэффициент.
+
+var jsonData = pm.response.json();
+var req_sal = request.data.salary
+
+var check_sal = jsonData.salary[0]
+pm.test("check_sal", function () {
+    pm.expect(check_sal).to.eql(req_sal*1);
+});
+
+var check_sal2 = +jsonData.salary[1]
+pm.test("check_sal2", function () {
+    pm.expect(check_sal2).to.eql(req_sal*2);
+});
+
+var check_sal3 = +jsonData.salary[2]
+pm.test("check_sal3", function () {
+    pm.expect(check_sal3).to.eql(req_sal*3);
+});
+
+
+Проверить, что 2-й элемент массива salary больше 1-го и 0-го
+
+if(check_sal3 > check_sal2 && check_sal3 > check_sal){
+console.log("Exactly!")}
